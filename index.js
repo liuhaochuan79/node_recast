@@ -2,7 +2,7 @@
 * @Author: pop
 * @Date:   2016-05-15 15:25:15
 * @Last Modified by:   pop
-* @Last Modified time: 2016-05-15 15:55:34
+* @Last Modified time: 2016-05-15 16:04:17
 */
 
 'use strict';
@@ -10,8 +10,8 @@
 function Recast() {
   this.addon = require('bindings')('addon');
   this.buildContext = new this.addon.BuildContext();
-  this.inputGeom = new addon.InputGeom();
-  this.sample_TempObstacles = new addon.Sample_TempObstacles();
+  this.inputGeom = new this.addon.InputGeom();
+  this.sample_TempObstacles = new this.addon.Sample_TempObstacles();
   //设置上下文
   this.sample_TempObstacles.setContext(this.buildContext);
   //设置输入网格

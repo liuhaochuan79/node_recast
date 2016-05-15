@@ -42,7 +42,7 @@ public:
     static NAN_METHOD(RemoveTempObstacle);
     static NAN_METHOD(ClearAllTempObstacles);
     static NAN_METHOD(FindNearestPoint);
-    static NAN_METHOD(GetRandomPoint);
+    static NAN_METHOD(FindRandomPoint);
     static NAN_METHOD(FindPath);
 
 public:

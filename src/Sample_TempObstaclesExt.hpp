@@ -35,7 +35,7 @@ public:
     unsigned int addTempObstacle(const float posX,const float posY,const float posZ,const float radius, const float height);
     unsigned int removeTempObstacle(const unsigned int ref);
     unsigned int findNearestPoint(float cx, float cy, float cz,float extx, float exty, float extz,float *nearestPos,dtPolyRef *ref);
-    unsigned int getRandomPoint(float *randomPt,dtPolyRef *ref);
+    unsigned int findRandomPoint(float *randomPt,dtPolyRef *ref);
     unsigned int findPath(float startPosX, float startPosY, float startPosZ,float endPosX, float endPosY, float endPosZ, int maxPath,vpath *ret);
     bool Build();
 };

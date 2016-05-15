@@ -8,8 +8,12 @@
 #include "Sample_TempObstaclesExt.hpp"
 #include <DetourTileCache.h>
 #include <DetourNavMeshQuery.h>
-
+#include <InputGeom.h>
+#include <DetourCommon.h>
 #include <time.h>
+
+// This value specifies how many layers (or "floors") each navmesh tile is expected to have.
+static const int EXPECTED_LAYERS_PER_TILE = 4;
 
 Sample_TempObstaclesExt::Sample_TempObstaclesExt() {
   srand(time(NULL));
@@ -17,6 +21,23 @@ Sample_TempObstaclesExt::Sample_TempObstaclesExt() {
 
 bool Sample_TempObstaclesExt::Build() 
 {
+  // Init cache
+  const float* bmin = m_geom->getNavMeshBoundsMin();
+  const float* bmax = m_geom->getNavMeshBoundsMax();
+  printf("handleBuild bmin:%f bmax:%f",*bmin,*bmax);
+  int gw = 0, gh = 0;
+  rcCalcGridSize(bmin, bmax, m_cellSize, &gw, &gh);
+
+  const int ts = (int)m_tileSize;
+  const int tw = (gw + ts-1) / ts;
+  const int th = (gh + ts-1) / ts;
+
+  int tileBits = rcMin((int)dtIlog2(dtNextPow2(tw*th*EXPECTED_LAYERS_PER_TILE)), 14);
+  if (tileBits > 14) tileBits = 14;
+  int polyBits = 22 - tileBits;
+  m_maxTiles = 1 << tileBits;
+  m_maxPolysPerTile = 1 << polyBits;
+
   return handleBuild();
 }
 
@@ -56,7 +77,7 @@ static float frand()
   return (float)rand()/(float)RAND_MAX;
 }
 
-unsigned int Sample_TempObstaclesExt::getRandomPoint(float *randomPt,dtPolyRef *ref)
+unsigned int Sample_TempObstaclesExt::findRandomPoint(float *randomPt,dtPolyRef *ref)
 {
     dtQueryFilter filter;
     filter.setIncludeFlags(3);

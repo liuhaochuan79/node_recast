@@ -9,7 +9,7 @@ var buildContext = new addon.BuildContext();
 //输入网格
 startTime = new Date().getTime();
 var inputGeom = new addon.InputGeom();
-var error = inputGeom.load(buildContext,'/Users/pop/project/avabel/bin/en/col/an0101.obj');
+var error = inputGeom.load(buildContext, __dirname + '/maz0001.obj');
 if( !error) {
   console.log('加载网格文件失败!');
   process.exit(0);
@@ -92,10 +92,10 @@ sample_TempObstacles.update(0);
 startTime = new Date().getTime();
 for(var i = 0; i < 1000; i++) {
   //随机得到一个合法的点
-  var ranPt1 = sample_TempObstacles.getRandomPoint();
+  var ranPt1 = sample_TempObstacles.findRandomPoint();
   //console.log(ranPt1);
 
-  var ranPt2 = sample_TempObstacles.getRandomPoint();
+  var ranPt2 = sample_TempObstacles.findRandomPoint();
   //console.log(ranPt2);
 
   //寻路
@@ -111,3 +111,4 @@ for(var i = 0; i < 1000; i++) {
 endTime = new Date().getTime();
 costTime = endTime - startTime;
 console.log('测试随机寻路1000次消耗时间:' + costTime + 'ms');
+

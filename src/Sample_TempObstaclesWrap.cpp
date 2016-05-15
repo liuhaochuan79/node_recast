@@ -44,7 +44,7 @@ NAN_MODULE_INIT(Sample_TempObstaclesWrap::Init) {
     Nan::SetPrototypeMethod(t, "removeTempObstacle", RemoveTempObstacle);
     Nan::SetPrototypeMethod(t, "clearAllTempObstacles", ClearAllTempObstacles);
     Nan::SetPrototypeMethod(t, "findNearestPoint", FindNearestPoint);
-    Nan::SetPrototypeMethod(t, "getRandomPoint", GetRandomPoint);
+    Nan::SetPrototypeMethod(t, "findRandomPoint", FindRandomPoint);
     Nan::SetPrototypeMethod(t, "findPath", FindPath);
 
     constructor_template.Reset(t);
@@ -207,7 +207,8 @@ NAN_METHOD(Sample_TempObstaclesWrap::RemoveTempObstacle) {
     OPTIONAL_ARGUMENT_INTEGER(0, ref,0);
     unsigned int status = obj->getSample_TempObstacles()->removeTempObstacle(ref);
     if (dtStatusFailed(status)) {
-      info.GetReturnValue().Set(false); 
+        printf("RemoveTempObstacle error:%d\n",status);
+        info.GetReturnValue().Set(false); 
     }
     else {
         info.GetReturnValue().Set(true);
@@ -232,7 +233,8 @@ NAN_METHOD(Sample_TempObstaclesWrap::FindNearestPoint) {
     float nearestPos[3];
     int status = obj->getSample_TempObstacles()->findNearestPoint(posX,posY,posZ,extentX,extentY,extentZ,nearestPos,&ref);
     if (dtStatusFailed(status)) {
-      info.GetReturnValue().Set(Nan::Null()); 
+        printf("FindNearestPoint error:%d\n",status);
+       info.GetReturnValue().Set(Nan::Null()); 
     }
     else {
         v8::Local<v8::Object> ret = Nan::New<v8::Object>();
@@ -244,14 +246,15 @@ NAN_METHOD(Sample_TempObstaclesWrap::FindNearestPoint) {
     }
 }
 
-NAN_METHOD(Sample_TempObstaclesWrap::GetRandomPoint) {
+NAN_METHOD(Sample_TempObstaclesWrap::FindRandomPoint) {
     Sample_TempObstaclesWrap* obj = Nan::ObjectWrap::Unwrap<Sample_TempObstaclesWrap>(info.This());
 
     dtPolyRef ref = 0;
     float randomPt[3];
-    int status = obj->getSample_TempObstacles()->getRandomPoint(randomPt,&ref);
+    int status = obj->getSample_TempObstacles()->findRandomPoint(randomPt,&ref);
     if (dtStatusFailed(status)) {
-      info.GetReturnValue().Set(Nan::Null()); 
+        printf("findRandomPoint error:%d\n",status);
+        info.GetReturnValue().Set(Nan::Null()); 
     }
     else {
         v8::Local<v8::Object> ret = Nan::New<v8::Object>();
@@ -276,7 +279,8 @@ NAN_METHOD(Sample_TempObstaclesWrap::FindPath) {
     vpath path;
     int status = obj->getSample_TempObstacles()->findPath(sx,sy,sz,ex,ey,ez,maxPath,&path);
     if (dtStatusFailed(status)) {
-      info.GetReturnValue().Set(Nan::Null()); 
+        printf("FindPath error:%u\n",status);
+        info.GetReturnValue().Set(Nan::Null()); 
     }
     else {
         v8::Local<v8::Array> result = Nan::New<v8::Array>(path.nlen);

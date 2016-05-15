@@ -2,7 +2,7 @@
 * @Author: pop
 * @Date:   2016-05-15 15:25:15
 * @Last Modified by:   pop
-* @Last Modified time: 2016-05-15 15:45:09
+* @Last Modified time: 2016-05-15 15:55:34
 */
 
 'use strict';
@@ -77,21 +77,21 @@ Recast.prototype.setPartitionType = function(val) {
 Recast.prototype.setDefault = function() {
   //设置参数
   this.setCellSize(0.1);
-  this..setCellHeight(0.2);
-  this..setAgentHeight(2.0);
+  this.setCellHeight(0.2);
+  this.setAgentHeight(2.0);
   //直径如果设置太大,会截断狭窄的地形
   //this.setAgentRadius(0.6);
-  this..setAgentRadius(0.0);
-  this..setAgentMaxClimb(0.9);
-  this..setAgentMaxSlope(45.0);
-  this..setRegionMinSize(8);
-  this..setRegionMergeSize(20.0);
-  this..setEdgeMaxLen(12.0);
-  this..setEdgeMaxError(1.3);
-  this..setVertsPerPoly(6);
-  this..setDetailSampleDist(6.0);
-  this..setDetailSampleMaxError(1.0);
-  this..setPartitionType(0);
+  this.setAgentRadius(0.0);
+  this.setAgentMaxClimb(0.9);
+  this.setAgentMaxSlope(45.0);
+  this.setRegionMinSize(8);
+  this.setRegionMergeSize(20.0);
+  this.setEdgeMaxLen(12.0);
+  this.setEdgeMaxError(1.3);
+  this.setVertsPerPoly(6);
+  this.setDetailSampleDist(6.0);
+  this.setDetailSampleMaxError(1.0);
+  this.setPartitionType(0);
 };
 
 Recast.prototype.load = function(fileName) {

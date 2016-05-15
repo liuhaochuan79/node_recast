@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "recast navigation for node.js",
   "main": "index.js",
+  "scripts": {
+    "install": "node-gyp rebuild",
+    "test" : "node test/test.js"
+  },
   "private": false,
   "gypfile": true,
   "dependencies": {

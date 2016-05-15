@@ -1,6 +1,6 @@
 {
   "name": "node_recast",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "recast navigation for node.js",
   "main": "index.js",
   "scripts": {

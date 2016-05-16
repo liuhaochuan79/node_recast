@@ -84,6 +84,11 @@ ref1 = sample_TempObstacles.addTempObstacle(x,y,z,radius,height);
 sample_TempObstacles.update(0);
 console.log('addTempObstacle result ref1:' + ref1);
 
+var nPt = sample_TempObstacles.findNearestPoint(0,0,0,2.0,2.0,2.0);
+console.log('FindNearestPoint result:');
+console.dir(nPt);
+
+
 //删除所有临时障碍
 sample_TempObstacles.clearAllTempObstacles();
 sample_TempObstacles.update(0);

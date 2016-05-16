@@ -1,7 +1,7 @@
 {
   "name": "node_recast",
   "version": "1.0.7",
-  "description": "recast navigation for node.js",
+  "description": "recast navigation for node.js addon",
   "main": "index.js",
   "scripts": {
     "install": "node-gyp rebuild",

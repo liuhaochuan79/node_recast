@@ -2,7 +2,7 @@
 * @Author: pop
 * @Date:   2016-05-15 15:25:15
 * @Last Modified by:   pop
-* @Last Modified time: 2016-05-15 16:04:17
+* @Last Modified time: 2016-05-16 18:27:47
 */
 
 'use strict';
@@ -116,6 +116,10 @@ Recast.prototype.clearAllTempObstacles = function() {
 
 Recast.prototype.update = function(dt) {
  this.sample_TempObstacles.update(dt);
+};
+
+Recast.prototype.findNearestPoint = function(x,y,z,rx,ry,rz) {
+  return this.sample_TempObstacles.findNearestPoint(x,y,z,rx,ry,rz);
 };
 
 Recast.prototype.findRandomPoint = function() {

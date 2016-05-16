@@ -1,5 +1,5 @@
 
-A JavaScript library to handle navigation meshes, in nodejs c++ wrap addon.
+A JavaScript library to handle 3D navigation meshes pathfind, in nodejs c++ wrap addon.
 
 [RecastDetour navigation c++ library](https://github.com/memononen/recastnavigation)
 
@@ -59,4 +59,5 @@ node ./node_modules/node_recast/test/test.js
 
 liuhaochuan & zhangyu
 
+# Mail
 liuhaochuan@hotmail.com

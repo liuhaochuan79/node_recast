@@ -1,6 +1,6 @@
 {
   "name": "node_recast",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "recast navigation for node.js addon",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
   "keywords": [
     "recast",
     "navigation",
-    "node"
+    "node","pathfind","mesh"
   ],
   "author": "liuhaochuan & zhangyu",
   "license": "MIT"

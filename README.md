@@ -3,6 +3,8 @@ A JavaScript library to handle navigation meshes, in nodejs c++ wrap addon.
 
 [RecastDetour navigation c++ library](https://github.com/memononen/recastnavigation)
 
+# Install
+npm install node_recast
 
 # Usage
 
@@ -56,3 +58,5 @@ node ./node_modules/node_recast/test/test.js
 # Author
 
 liuhaochuan & zhangyu
+
+liuhaochuan@hotmail.com

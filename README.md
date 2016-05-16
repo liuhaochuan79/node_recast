@@ -1,5 +1,5 @@
-# install:  npm install node_recast
-# uninstall: npm uninstall node_recast
+# npm install
+npm install node_recast
 
 # Usage
 
@@ -33,9 +33,14 @@ recast.removeTempObstacle(ref);
 recast.update(0);
 
 recast.clearAllTempObstacles();
+recast.update(0);
 
 var ranPt1 = recast.findRandomPoint();
 
 var ranPt2 = recast.findRandomPoint();
 
 var path1 = recast.findPath(ranPt1.x,ranPt1.y,ranPt1.z,ranPt2.x,ranPt2.y,ranPt2.z,1000);
+console.dir(path1);
+
+# author
+liuhaochuan & zhangyu

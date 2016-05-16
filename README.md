@@ -44,8 +44,9 @@ var ranPt2 = recast.findRandomPoint();
 
 var path1 = recast.findPath(ranPt1.x,ranPt1.y,ranPt1.z,ranPt2.x,ranPt2.y,ranPt2.z,1000);
 console.dir(path1);
+```
 
-# Test
+# Testing
 
 node ./node_modules/node_recast/test/test.js
 

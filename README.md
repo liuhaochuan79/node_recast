@@ -25,7 +25,7 @@ recast.load('/path/objfile.obj');
 
 recast.build();
 
-var nPt = sample_TempObstacles.findNearestPoint(0,0,0,2.0,2.0,2.0);
+var nPt = recast.findNearestPoint(0,0,0,2.0,2.0,2.0);
 console.log('FindNearestPoint result:');
 console.dir(nPt);
 

@@ -1,5 +1,8 @@
-# npm install
-npm install node_recast
+
+A JavaScript library to handle navigation meshes, in nodejs c++ wrap addon.
+
+[RecastDetour navigation c++ library](https://github.com/memononen/recastnavigation)
+
 
 # Usage
 
